@@ -6,6 +6,7 @@ import requests
 import yaml
 from PIL import Image
 from requests.exceptions import ConnectionError
+import logging
 
 """Modified by mak448a on 6/4/23. Changed the request cli to be a module. Added Async to module
 
@@ -120,6 +121,8 @@ class Generator:
                         if not chk_req.ok:
                             return
                         chk_results = chk_req.json()
+                        print(f"Wait time: {chk_results['wait_time']}    Queue position: "
+                              f"{chk_results['queue_position']}    Prompt: {prompt}")
                         is_done = chk_results['done']
                         await asyncio.sleep(0.8)
                     except ConnectionError as e:
