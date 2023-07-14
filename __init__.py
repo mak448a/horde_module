@@ -2,6 +2,7 @@ import asyncio
 from io import BytesIO
 import base64
 import os
+import time
 import requests
 import yaml
 from PIL import Image
@@ -200,11 +201,11 @@ class Generator:
                         print(f"Wait time: {chk_results['wait_time']}    Queue position: "
                               f"{chk_results['queue_position']}    Prompt: {prompt}")
                         is_done = chk_results['done']
-                        await asyncio.sleep(0.8)
+                        await time.sleep(0.8)
                     except ConnectionError as e:
                         retry += 1
                         if retry < 10:
-                            await asyncio.sleep(1)
+                            time.sleep(1)
                             continue
                         raise
             except KeyboardInterrupt:
