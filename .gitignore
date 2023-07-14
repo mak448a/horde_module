@@ -128,6 +128,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+.idea/
 
 cliRequestsData_Dream.yml
 cliRequestsData_Scribe.yml
