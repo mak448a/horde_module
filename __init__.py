@@ -201,7 +201,7 @@ class Generator:
                         print(f"Wait time: {chk_results['wait_time']}    Queue position: "
                               f"{chk_results['queue_position']}    Prompt: {prompt}")
                         is_done = chk_results['done']
-                        await time.sleep(0.8)
+                        time.sleep(0.8)
                     except ConnectionError as e:
                         retry += 1
                         if retry < 10:
